@@ -1,3 +1,10 @@
+
+body {
+  overflow-x: hidden;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -119,7 +126,8 @@ nav a:hover {
   background-color: white;
   padding: 25px;
   border-radius: 10px;
-  width: 280px;
+  max-width: 280px;
+  width: 100%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

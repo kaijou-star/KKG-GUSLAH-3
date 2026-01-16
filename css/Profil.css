@@ -1,97 +1,132 @@
+/* --- CSS ASLI KAMU (DENGAN PERBAIKAN FLEKSIBILITAS) --- */
 
 body {
   overflow-x: hidden;
 }
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* NAVBAR */
+/* NAVBAR - Diubah sedikit agar menu tidak tumpuk di layar kecil */
 .navbar {
-    height: 70px;
-    background: linear-gradient(135deg, #0f4c81, #1b6ca8);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
+  min-height: 70px; /* Pakai min-height agar bisa melar */
+  height: auto; 
+  background: linear-gradient(135deg, #0f4c81, #1b6ca8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  flex-wrap: wrap; /* Supaya menu turun ke bawah kalau layar sempit */
 }
 
 .logo {
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .menu {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
 }
 
 .menu a.active {
-    border-bottom: 2px solid #fff;
-    padding-bottom: 4px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 4px;
 }
 
 /* HERO */
 .hero {
-    background: linear-gradient(135deg, #1b6ca8, #0f4c81);
-    color: white;
-    text-align: center;
-    padding: 70px 20px;
+  background: linear-gradient(135deg, #1b6ca8, #0f4c81);
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
 }
 
 .hero h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-/* PROFIL SECTION */
+/* PROFIL SECTION - Sudah bagus pakai grid, saya optimalkan sedikit */
 .profil {
-    padding: 60px 20px;
-    max-width: 1000px;
-    width: 100%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+  padding: 60px 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  /* repeat(auto-fit) ini sudah benar untuk fleksibilitas */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 25px;
 }
 
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .card h2 {
-    color: #0f4c81;
-    margin-bottom: 10px;
+  color: #0f4c81;
+  margin-bottom: 10px;
 }
 
 .card p,
 .card li {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.6;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
+  text-align: center;
+  padding: 20px;
+  background: #0f4c81;
+  color: white;
+  margin-top: 40px;
+}
+
+/* ====================================================== */
+/* TAMBAHAN MEDIA QUERY (SUPAYA FLEKSIBEL DI HP)         */
+/* Tanpa merubah CSS atas, hanya menyesuaikan saat di HP  */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Logo di atas, Menu di bawah */
     padding: 20px;
-    background: #0f4c81;
-    color: white;
-    margin-top: 40px;
+    text-align: center;
+  }
+
+  .menu {
+    margin-top: 15px;
+    margin-left: 0;
+    flex-wrap: wrap; /* Menu tidak memanjang ke samping */
+    justify-content: center;
+  }
+
+  .menu a {
+    margin: 5px 10px; /* Jarak antar menu diatur ulang */
+  }
+
+  .hero h1 {
+    font-size: 24px; /* Kecilkan font judul di HP agar tidak pecah */
+  }
+
+  .profil {
+    grid-template-columns: 1fr; /* Paksa satu kolom di layar HP */
+  }
 }

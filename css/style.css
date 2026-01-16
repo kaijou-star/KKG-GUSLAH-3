@@ -1,333 +1,193 @@
-
-body {
-  overflow-x: hidden;
-}
-
-
-
+/* --- RESET & BASIC SETUP --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background-color: #f4f6f8;
-  color: #333;
-}
-/* Navbar */
-header {
-  background-color: #0d47a1;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
+    background-color: #f4f6f8;
+    color: #333;
+    overflow-x: hidden; /* Mencegah scroll ke samping */
 }
 
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
+/* --- NAVBAR & HEADER --- */
+header {
+    background-color: #0d47a1;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    min-height: 70px;
 }
 
 .navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  height: 100%;
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .navbar-logo span {
-  color: #f5c400;
+    color: #f5c400;
 }
 
 .navbar-logo img {
-  height: 58px;
-  width: auto;
-  object-fit: contain;
-}
-
-.navbar {
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
+    height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
 }
 
 nav a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* Hero */
+/* --- HERO SECTION --- */
 .hero {
-  background: linear-gradient(to right, #1565c0, #1e88e5);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
+    background: linear-gradient(to right, #1565c0, #1e88e5);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
 .hero button {
-  padding: 12px 25px;
-  border: none;
-  background-color: white;
-  color: #1565c0;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+    padding: 12px 25px;
+    border: none;
+    background-color: white;
+    color: #1565c0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 .hero button:hover {
-  background-color: #e3f2fd;
+    background-color: #e3f2fd;
 }
 
-/* About */
-.about {
-  padding: 50px 40px;
-  text-align: center;
+/* --- CONTENT SECTIONS (About, Kepsek, dll) --- */
+.about, .kepsek, .program, .news {
+    padding: 50px 40px;
+    text-align: center;
 }
 
-.about h2 {
-  margin-bottom: 15px;
-  font-size: 28px;
+.program { background-color: #e3f2fd; }
+
+.about h2, .kepsek h2, .program h2, .news h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #0d47a1;
 }
 
-/* Features */
-.features {
-  display: flex;
-  gap: 20px;
-  padding: 40px;
-  justify-content: center;
+/* --- FLEXBOX GRID (Features, Program, News) --- */
+.features, .program-list, .news-list {
+    display: flex;
+    flex-wrap: wrap; /* Supaya otomatis turun ke bawah di layar kecil */
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
 }
 
-.card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 280px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* --- CARDS STYLE --- */
+.card, .program-card, .news-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 280px; /* Lebar standar di desktop */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.card h3 {
-  margin-bottom: 10px;
-  color: #0d47a1;
+.card h3, .program-card h3, .news-card h3 {
+    margin-bottom: 10px;
+    color: #0d47a1;
 }
 
-/* Footer */
-footer {
-  background-color: #0d47a1;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  background-color: #f4f6f8;
-  color: #333;
-}
-
-/* Navbar */
-header {
-  background-color: #0d47a1;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-}
-
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(to right, #1565c0, #1e88e5);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-.hero button {
-  padding: 12px 25px;
-  border: none;
-  background-color: white;
-  color: #1565c0;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.hero button:hover {
-  background-color: #e3f2fd;
-}
-
-/* About */
-.about {
-  padding: 50px 40px;
-  text-align: center;
-}
-
-.about h2 {
-  margin-bottom: 15px;
-  font-size: 28px;
-}
-
-/* Features */
-.features {
-  display: flex;
-  gap: 20px;
-  padding: 40px;
-  justify-content: center;
-}
-
-.card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 10px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-  margin-bottom: 10px;
-  color: #0d47a1;
-}
-
-/* Footer */
-footer {
-  background-color: #0d47a1;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-/* Kepala Sekolah */
-.kepsek {
-  background-color: white;
-  padding: 50px 40px;
-  text-align: center;
-}
-
-.kepsek h2 {
-  margin-bottom: 15px;
-  color: #0d47a1;
-}
-
-.kepsek .nama {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* Program Unggulan */
-.program {
-  background-color: #e3f2fd;
-  padding: 50px 40px;
-  text-align: center;
-}
-
-.program-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.program-card {
-  background-color: white;
-  padding: 25px;
-  width: 260px;
-  border-radius: 10px;
-}
-
-/* Berita */
-.news {
-  padding: 50px 40px;
-  text-align: center;
-}
-
-.news-list {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 25px;
-}
-
-.news-card {
-  background-color: white;
-  padding: 20px;
-  width: 260px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* CTA */
+/* --- CTA SECTION --- */
 .cta {
-  background: linear-gradient(to right, #0d47a1, #1976d2);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
+    background: linear-gradient(to right, #0d47a1, #1976d2);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .cta button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ============================================= */
+/* KODE TAMBAHAN SUPAYA FLEKSIBEL (HP)     */
+/* ============================================= */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Menu pindah ke bawah logo */
+        padding: 20px;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 0;
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .card, .program-card, .news-card {
+        width: 100%; /* Kartu jadi penuh mengikuti lebar HP */
+        max-width: 400px;
+    }
+
+    .about, .kepsek, .program, .news {
+        padding: 40px 20px;
+    }
 }

@@ -1,8 +1,8 @@
+/* --- CSS ASLI KAMU --- */
 
-body{
+body {
     overflow-x: hidden;
 }
-
 
 * {
     margin: 0;
@@ -16,19 +16,26 @@ body {
     color: #333;
 }
 
-/* NAVBAR */
+/* NAVBAR - Dibuat fleksibel */
 .navbar {
     background: #1e6bd6;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 15px 5%; /* Gunakan % agar tidak kaku */
+    min-height: 70px;
+    flex-wrap: wrap; /* Supaya menu turun ke bawah di HP */
 }
 
 .logo {
     font-weight: bold;
     font-size: 18px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
 }
 
 .menu a {
@@ -61,13 +68,14 @@ body {
     opacity: 0.9;
 }
 
-/* GALERI */
+/* GALERI - Grid sudah bagus, tinggal dijaga ukurannya */
 .galeri {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    /* Ini kunci agar galeri otomatis jadi 1, 2, atau 3 kolom sesuai layar */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -102,4 +110,42 @@ body {
     padding: 20px;
     font-size: 13px;
     color: #666;
+}
+
+/* ====================================================== */
+/* TAMBAHAN BIAR JADI FLEKSIBEL DI HP                    */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Logo di atas, Menu di bawah */
+        gap: 15px;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .menu {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .menu a {
+        margin: 0 10px; /* Jarak menu dirapatkan di HP */
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .galeri {
+        /* Memastikan grid hanya jadi 1 kolom kalau layar sangat sempit */
+        grid-template-columns: 1fr; 
+        margin: 20px auto;
+    }
+
+    .foto img {
+        height: 200px; /* Gambar dibuat agak tinggi di HP supaya jelas */
+    }
 }

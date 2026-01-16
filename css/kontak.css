@@ -1,8 +1,8 @@
+/* --- CSS ASLI KAMU --- */
 
-body{
-  overflow-x: hidden;
+body {
+    overflow-x: hidden;
 }
-
 
 * {
     margin: 0;
@@ -11,54 +11,58 @@ body{
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* BODY JANGAN FLEX CENTER */
 body {
     background: linear-gradient(135deg, #0f4c81, #1b6ca8);
     min-height: 100vh;
+    background-image: url("../img/Fotobaground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-body {
-  background-image: url("../img/Fotobaground.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.header a::after {
-  content: "";
-  position: absolute;
-  bottom: 16px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #f5c400;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.header a:hover::after {
-  transform: scaleX(1);
-}
-
-/* HEADER / KOTAK BIRU */
+/* HEADER / NAVBAR */
 .header {
     width: 100%;
-    height: 70px;
+    min-height: 70px;
     background-color: #1e6bd6;
     color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    padding: 0 5%; /* DIGANTI: tadinya 230px, sekarang 5% supaya fleksibel */
     font-weight: bold;
 }
 
-/* WRAPPER KHUSUS BUAT TENGAHIN CARD */
+.header a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.header a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Disesuaikan agar pas */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f5c400;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.header a:hover::after {
+    transform: scaleX(1);
+}
+
+/* WRAPPER KHUSUS KONTAK */
 .kontak {
     min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px; /* Jarak aman biar card gak nempel layar HP */
 }
 
 /* CARD */
@@ -66,7 +70,7 @@ body {
     background: #fff;
     padding: 35px;
     max-width: 420px;
-    width: 90%;
+    width: 100%; /* Biar bisa mengecil */
     border-radius: 18px;
     text-align: center;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
@@ -101,14 +105,6 @@ body {
     gap: 12px;
 }
 
-.header {
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 230px;
-}
-
 .btn {
     text-decoration: none;
     color: #fff;
@@ -116,10 +112,6 @@ body {
     border-radius: 10px;
     font-weight: 600;
     transition: 0.3s;
-}
-
-.btn i {
-    margin-right: 8px;
 }
 
 .btn.wa {
@@ -135,5 +127,27 @@ body {
     opacity: 0.9;
 }
 
+/* ====================================================== */
+/* KHUSUS PENYESUAIAN DEVICE (MOBILE/HP)                  */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px; /* Padding dikecilkan di HP */
+        flex-direction: column; /* Menu & Logo jadi atas-bawah jika perlu */
+        justify-content: center;
+        gap: 10px;
+        height: auto;
+        padding: 15px;
+    }
+
+    .kontak-card {
+        padding: 25px 20px; /* Kurangi padding dalam card di layar kecil */
+    }
+
+    .header a::after {
+        display: none; /* Garis hover dimatikan di HP biar lebih bersih */
+    }
+}
 
 
